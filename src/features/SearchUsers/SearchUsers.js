@@ -17,15 +17,17 @@ import {
 function Users({ users }) {
   return (
     <UsersWrapper>
-      <Link to="/user">
-        <User>
-          <UserAvatar src={users.avatar_url}></UserAvatar>
-          <UserData>
-            <UserName>{users.name}</UserName>
-            <UserLogin>@{users.login}</UserLogin>
-          </UserData>
-        </User>
-      </Link>
+      {users?.map((user) => (
+        <Link to="/user">
+          <User>
+            <UserAvatar src={user.avatar_url}></UserAvatar>
+            <UserData>
+              <UserName>{user.name}</UserName>
+              <UserLogin>@{user.login}</UserLogin>
+            </UserData>
+          </User>
+        </Link>
+      ))}
     </UsersWrapper>
   );
 }
@@ -36,9 +38,11 @@ function SearchUsers() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch(`https://api.github.com/users/${text}`);
+      const response = await fetch(
+        `https://api.github.com/search/users?q=${text}%20in:fullname`
+      );
       const data = await response.json();
-      setUsers(data);
+      setUsers(data.items);
     };
 
     const timerId = setTimeout(fetchUsers, 1000);
