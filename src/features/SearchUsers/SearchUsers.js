@@ -33,7 +33,7 @@ function Users({ users }) {
 }
 
 function SearchUsers() {
-  const [text, setText] = useState("mojombo");
+  const [text, setText] = useState("");
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
