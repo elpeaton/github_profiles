@@ -1,3 +1,9 @@
+DESIGN:
+https://xd.adobe.com/view/8c39fa6e-bec2-401e-b47a-4bcd0400de56-d96a/
+
+NETLIFY:
+https://humberto-delgado-aimo.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
