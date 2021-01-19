@@ -1,32 +1,55 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import {
   Wrapper,
   Title,
   SearchInput,
   UsersWrapper,
+  StyledLink,
   User,
+  UserNameText,
   UserAvatar,
   UserData,
-  UserName,
   UserLogin,
 } from "./SearchUsersStyles";
+
+function UserName({ login }) {
+  const [userName, setUserName] = useState([]);
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const response = await fetch(`https://api.github.com/users/${login}`, {
+        method: "GET",
+        headers: {
+          Authorization: `token ${process.env.REACT_APP_PT}`,
+        },
+      });
+      const data = await response.json();
+      setUserName(data.name);
+    };
+    fetchUserName();
+  }, [login]);
+  console.log(userName);
+  console.log(login);
+
+  return <div>{userName && <UserNameText>{userName}</UserNameText>}</div>;
+}
 
 function Users({ users }) {
   return (
     <UsersWrapper>
       {users?.map((user) => (
-        <Link to={`/users/${user.login}`}>
-          <User key={user.id}>
+        <StyledLink to={`/users/${user.login}`} key={user.id}>
+          <User>
             <UserAvatar src={user.avatar_url}></UserAvatar>
             <UserData>
-              <UserName>{user.name}</UserName>
+              <UserName login={user.login} />
               <UserLogin>@{user.login}</UserLogin>
             </UserData>
           </User>
-        </Link>
+        </StyledLink>
       ))}
     </UsersWrapper>
   );
@@ -39,7 +62,13 @@ function SearchUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       const response = await fetch(
-        `https://api.github.com/search/users?q=${text}%20in:fullname`
+        `https://api.github.com/search/users?q=${text}%20in:fullname`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `token ${process.env.REACT_APP_PT}`,
+          },
+        }
       );
       const data = await response.json();
       setUsers(data.items);
