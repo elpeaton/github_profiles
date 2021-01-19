@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   padding: 45px 25px;
@@ -30,6 +31,10 @@ export const UsersWrapper = styled.div`
   border-top: 1px solid #babbc1;
 `;
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export const User = styled.div`
   padding: 1rem;
   display: flex;
@@ -50,10 +55,11 @@ export const UserData = styled.div`
   align-items: left;
 `;
 
-export const UserName = styled.p`
+export const UserNameText = styled.p`
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: black;
 `;
 
 export const UserLogin = styled.p`

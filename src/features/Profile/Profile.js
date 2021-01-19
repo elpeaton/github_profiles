@@ -27,7 +27,12 @@ function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await fetch(`https://api.github.com/users/${login}`);
+      const response = await fetch(`https://api.github.com/users/${login}`, {
+        method: "GET",
+        headers: {
+          Authorization: `token a10eae0094be5529c2ce227a73a5e961bf326cad`,
+        },
+      });
       const data = await response.json();
       setUser(data);
     };
@@ -49,12 +54,14 @@ function Profile() {
           </Link>
         </Header>
         <TextData>
-          <UserName>{user.name}</UserName>
+          {user.name && <UserName>{user.name}</UserName>}
           <UserLogin>@{user.login}</UserLogin>
-          <LocationBox>
-            <Icon src={locationIcon} alt="Location" />
-            <UserLocation>{user.location}</UserLocation>
-          </LocationBox>
+          {user.location && (
+            <LocationBox>
+              <Icon src={locationIcon} alt="Location" />
+              <UserLocation>{user.location}</UserLocation>
+            </LocationBox>
+          )}
         </TextData>
       </MainData>
       <NumericData>
