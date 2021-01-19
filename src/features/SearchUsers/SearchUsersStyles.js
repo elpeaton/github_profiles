@@ -56,8 +56,9 @@ export const UserName = styled.p`
   margin-bottom: 0.5rem;
 `;
 
-export const UserLogin = styled.p`
+export const UserLogin = styled.a`
   font-size: 1.4rem;
   font-weight: 500;
   color: #9a9a9d;
+  text-decoration: none;
 `;

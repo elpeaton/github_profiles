@@ -6,7 +6,6 @@ export const ProfileWrapper = styled.div`
 `;
 
 export const MainData = styled.div`
-  background-image: url(https://avatars0.githubusercontent.com/u/1?v=4);
   background-size: cover;
   background-position: center;
   width: 100%;
