@@ -1,11 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 .eslintcache
-<<<<<<< HEAD
-.env 
-=======
 .env
->>>>>>> 1d7a3ce12f08ad90130519182f5be542093629cd
 
 # dependencies
 /node_modules

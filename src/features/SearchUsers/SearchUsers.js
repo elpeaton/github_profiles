@@ -31,8 +31,6 @@ function UserName({ login }) {
     };
     fetchUserName();
   }, [login]);
-  console.log(userName);
-  console.log(login);
 
   return <div>{userName && <UserNameText>{userName}</UserNameText>}</div>;
 }
@@ -78,7 +76,7 @@ function SearchUsers() {
 
     return () => clearTimeout(timerId);
   }, [text]);
-  console.log(users);
+
   return (
     <Wrapper>
       <Title>Github Users</Title>

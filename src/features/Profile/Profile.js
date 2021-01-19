@@ -38,8 +38,6 @@ function Profile() {
     };
     fetchUser();
   }, [login]);
-  console.log(user);
-  console.log(login);
 
   return (
     <ProfileWrapper>
