@@ -18,7 +18,7 @@ function Users({ users }) {
   return (
     <UsersWrapper>
       {users?.map((user) => (
-        <Link to="/user">
+        <Link to={`/users/${user.login}`}>
           <User>
             <UserAvatar src={user.avatar_url}></UserAvatar>
             <UserData>

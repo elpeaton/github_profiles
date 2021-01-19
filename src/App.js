@@ -14,7 +14,11 @@ function App() {
         <CSSReset />
         <Switch>
           <Route path={["/", "/search"]} exact component={SearchUsers} />
-          <Route path={["/user"]} component={Profile} />
+          <Route
+            path={["/users/:login"]}
+            component={Profile}
+            children={<Profile />}
+          />
           <Route render={() => <h1>Page not found</h1>} />
         </Switch>
       </AppContainer>
