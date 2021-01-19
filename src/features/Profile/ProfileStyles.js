@@ -27,6 +27,10 @@ export const TextData = styled.div`
     rgba(255, 0, 0, 0),
     rgba(77, 159, 208, 1)
   );
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 
 export const UserName = styled.p`
