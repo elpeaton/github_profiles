@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { css, jsx } from "@emotion/react";
+import { css } from "@emotion/react";
 import {
   Header,
   LocationBox,
