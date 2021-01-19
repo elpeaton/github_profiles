@@ -30,7 +30,7 @@ function Profile() {
       const response = await fetch(`https://api.github.com/users/${login}`, {
         method: "GET",
         headers: {
-          Authorization: `token a10eae0094be5529c2ce227a73a5e961bf326cad`,
+          Authorization: `token ${process.env.REACT_APP_PT}`,
         },
       });
       const data = await response.json();
